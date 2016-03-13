@@ -7,6 +7,7 @@ class TriggerHappy {
   public:
     TriggerHappy(int trig, int echo);
     long PingDuration();
+    long PingCentimeters();
     long CalcCentimeters(long duration);
     long CalcInches(long duration);
   private:

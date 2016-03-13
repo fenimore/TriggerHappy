@@ -40,6 +40,18 @@ long TriggerHappy::PingDuration(){
   return _duration;
 }
 
+long TriggerHappy::PingCentimeters(){
+  long _duration;
+  // See PingDuration for comments
+  digitalWrite(_trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(_trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(_trig, LOW);
+  _duration = pulseIn(_echo, HIGH);
+  return _duration / 29 / 2;
+}
+
 long TriggerHappy::CalcCentimeters(long duration){
   // The speed of sound is 340 m/s or 29 microseconds per centimeter.
   // The ping travels out and back, so to find the distance of the
